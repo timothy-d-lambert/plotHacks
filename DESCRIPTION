@@ -1,8 +1,11 @@
 Package: plotHacks
-Title: What the Package Does (one line, title case)
+Title: Wrapper function for easy plotting in using base R functionality
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-Depends: R (>= 3.2.1)
-License: What license is it under?
-LazyData: true
+Authors@R: person("Evan", "Childress", email = "evan.childress@gmail.com", role = c("aut", "cre"))
+Description: These are just functions that make plotting faster and easier for
+    me by setting defaults and/or wrapping multiple actions into one simple action.
+Depends:
+    R (>= 3.2.1)
+License: GNU
+LazyData: false
+RoxygenNote: 5.0.1
