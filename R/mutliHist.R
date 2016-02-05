@@ -37,7 +37,8 @@ multiHist<-function(data,y,group,breaks,col=NULL,axisStep=1,xlimit=NULL,logAxis=
   axisLabels<-axisSeq
   a<-lm(I(1:length(breaks))~breaks)
   axisAt<-predict(a,data.frame(breaks=axisSeq))-1
-  if(logAxis){axisLabels<-10^axisLabels}
+
+  if(logAxis) {axisLabels<-10^axisLabels}
   axis(1,axisAt,axisLabels)
   box(bty='l')
 }
