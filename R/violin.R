@@ -7,16 +7,24 @@
 #'
 #'@export
 
-violin<-function (x,splitBy,data, range = 1.5, h = NULL, ylim = NULL, names = NULL,
+violin<-function (x,splitBy=NULL,data, range = 1.5, h = NULL, ylim = NULL, names = NULL,
           horizontal = FALSE, col = "magenta", border = "black", lty = 1,
           lwd = 1, rectCol = "black", colMed = "white", pchMed = 19,
-          at, add = FALSE, wex = 1, drawRect = TRUE)
+          at, add = FALSE, wex = 1, drawRect = TRUE, orders=NULL,
+          xlab=NULL,ylab=NULL,main=NULL)
 {
-  if(!is.data.table(data)){data<-data.table(data)}
+  if(is.data.table(data)){data<-data.frame(data)}
   datas<-list()
   if(!is.null(splitBy)){
-    for(f in unique(data[[splitBy]])){
-      datas[[f]]<-data[get(splitBy)==f,get(x)]
+
+    groups<-unique(data[[splitBy]])
+
+    if(is.null(orders)){
+      groups<-groups[order(groups)]
+    } else {groups<-groups[which(groups)==orders]}
+
+    for(f in groups){
+      datas[[as.character(f)]]<-data[data[[splitBy]]==f,x]
     }
   } else {datas[[x]]<-data[[x]]}
   n <- length(datas)
@@ -62,12 +70,10 @@ violin<-function (x,splitBy,data, range = 1.5, h = NULL, ylim = NULL, names = NU
       ylim <- baserange
     }
   }
-  if (is.null(names)) {
-    label <- 1:n
-  }
-  else {
-    label <- names
-  }
+
+  label<-x
+  if(!is.null(splitBy)){label<-groups}
+
   boxwidth <- 0.05 * wex
   if (!add)
     plot.new()
@@ -76,6 +82,9 @@ violin<-function (x,splitBy,data, range = 1.5, h = NULL, ylim = NULL, names = NU
       plot.window(xlim = xlim, ylim = ylim)
       axis(2)
       axis(1, at = at, label = label)
+      if(is.null(ylab)){ylab<-x}
+      if(is.null(xlab)){xlab<-splitBy}
+      title(xlab=xlab,ylab=ylab,main=main)
     }
     box()
     for (i in 1:n) {
@@ -96,6 +105,9 @@ violin<-function (x,splitBy,data, range = 1.5, h = NULL, ylim = NULL, names = NU
       plot.window(xlim = ylim, ylim = xlim)
       axis(1)
       axis(2, at = at, label = label)
+      if(!exists("ylab")){ylab<-x}
+      if(!exists("xlab")){xlab<-splitBy}
+      title(xlab=xlab,ylab=ylab,main=main)
     }
     box()
     for (i in 1:n) {

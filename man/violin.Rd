@@ -5,10 +5,11 @@
 \title{Creates a violin plot splitting the data into groups
 This is just a slight variation on the vioplot function from the package 'vioplot' that I made so I could just pass a data variable and a grouping variable instead of splitting the data outside of the function, which is how vioplot works.}
 \usage{
-violin(x, splitBy, data, range = 1.5, h = NULL, ylim = NULL,
+violin(x, splitBy = NULL, data, range = 1.5, h = NULL, ylim = NULL,
   names = NULL, horizontal = FALSE, col = "magenta", border = "black",
   lty = 1, lwd = 1, rectCol = "black", colMed = "white", pchMed = 19,
-  at, add = FALSE, wex = 1, drawRect = TRUE)
+  at, add = FALSE, wex = 1, drawRect = TRUE, orders = NULL,
+  xlab = NULL, ylab = NULL, main = NULL)
 }
 \arguments{
 \item{x}{is a quoted variable name that is the data that goes into violin plots}
