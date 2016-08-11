@@ -6,9 +6,9 @@
 #'
 #'@export
 #'
-panelLabel<-function(text,xadj=0.035,yadj=0.05){
+panelLabel<-function(text,xadj=0.035,yadj=0.05,...){
 
   y<-par("usr")[4]-(par("usr")[4]-par("usr")[3])*yadj
   x<-(par("usr")[2]-par("usr")[1])*xadj+par("usr")[1]
-  text(x,y,text)
+  text(x,y,text,...)
 }

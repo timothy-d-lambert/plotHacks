@@ -60,5 +60,5 @@ if(interval.type=="dist"){
   lower.y<-y-lower.y
 }
   polygon(c(x,rev(x)),
-      c(upper.y,rev(lower.y)),col=col,border=border)
+      c(upper.y,rev(lower.y)),col=col,border=border,...)
 }
