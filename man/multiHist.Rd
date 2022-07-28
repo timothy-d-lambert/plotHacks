@@ -4,8 +4,8 @@
 \alias{multiHist}
 \title{Creates a stacked histogram (as opposed to side-by-side or overlapping) for categorical data}
 \usage{
-multiHist(data, y, group, breaks, col = NULL, axisStep = 1, xlimit = NULL,
-  logAxis = F, axisLim = NULL, ...)
+multiHist(data, y, group, breaks, col = NULL, axisStep = 1,
+  xlimit = NULL, logAxis = F, axisLim = NULL, ...)
 }
 \arguments{
 \item{data}{is a data.frame or data.table containing the data}
@@ -26,4 +26,3 @@ A stacked histogram color coded by the provided factor
 \description{
 Creates a stacked histogram (as opposed to side-by-side or overlapping) for categorical data
 }
-

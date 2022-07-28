@@ -5,7 +5,7 @@ Authors@R: person("Evan", "Childress", email = "evan.childress@gmail.com", role 
 Description: These are just functions that make plotting faster and easier for
     me by setting defaults and/or wrapping multiple actions into one simple action.
 Depends:
-    R (>= 3.1.0),sm,data.table
+    R (>= 3.1.0),sm,data.table,tidyr
 License: GNU
 LazyData: false
-RoxygenNote: 5.0.1
+RoxygenNote: 6.1.1

@@ -4,7 +4,7 @@
 \alias{panelLabel}
 \title{Puts text in the top left corner of a plot}
 \usage{
-panelLabel(text, xadj = 0.035, yadj = 0.05)
+panelLabel(text, xadj = 0.035, yadj = 0.05, ...)
 }
 \arguments{
 \item{text}{the text to print}
@@ -18,4 +18,3 @@ panelLabel(text, xadj = 0.035, yadj = 0.05)
 \description{
 Puts text in the top left corner of a plot
 }
-

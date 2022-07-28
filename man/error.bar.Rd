@@ -34,4 +34,3 @@ Plots error bars on a base R plot
 \details{
 Puts error bars on a plot. The default has only y error bars, you must define the vectors x,y, and upper.y (your error vector) at a minimum. Lower and upper error can be set separately by also defining lower.y. To display x error bars set x.bar=T and upper.x to a vector containing your x error. type is set to either "dist" as in distance from the mean or "value" which is the actual lower/upper bound
 }
-

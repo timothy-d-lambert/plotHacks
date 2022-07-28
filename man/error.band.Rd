@@ -4,8 +4,8 @@
 \alias{error.band}
 \title{Plots error as a polygon on a base R plot, maybe, I haven't really tested or used this much}
 \usage{
-error.band(x, y, upper.y, lower.y = upper.y, col = "gray", border = NA,
-  interval.type = "dist", ...)
+error.band(x, y, upper.y, lower.y = upper.y, col = "gray",
+  border = NA, interval.type = "dist", ...)
 }
 \arguments{
 \item{x}{a numeric vector palcement of error bars on the x-axis}
@@ -28,4 +28,3 @@ Plots error as a polygon on a base R plot, maybe, I haven't really tested or use
 \details{
 Puts error bars on a plot. The default has only y error bars, you must define the vectors x,y, and upper.y (your error vector) at a minimum. Lower and upper error can be set separately by also defining lower.y. To display x error bars set x.bar=T and upper.x to a vector containing your x error. type is set to either "dist" as in distance from the mean or "value" which is the actual lower/upper bound
 }
-

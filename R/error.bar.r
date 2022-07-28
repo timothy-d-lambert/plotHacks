@@ -12,27 +12,29 @@
 #'@details Puts error bars on a plot. The default has only y error bars, you must define the vectors x,y, and upper.y (your error vector) at a minimum. Lower and upper error can be set separately by also defining lower.y. To display x error bars set x.bar=T and upper.x to a vector containing your x error. type is set to either "dist" as in distance from the mean or "value" which is the actual lower/upper bound
 #'@export
 
-error.bar <- function(x, y, upper.y,
-                      lower.y=upper.y,upper.x,lower.x=upper.x,
+error.bar <- function(x, y, upper.y=NA,
+                      lower.y=upper.y,upper.x=NA,lower.x=upper.x,
                       length=0.03,x.bar=F,y.bar=T,interval.type="dist",...){
-if(length(x) != length(y) | length(y) !=length(lower.y) |
-     length(lower.y) != length(upper.y))
+if(length(x) != length(y) |(y.bar==T &(length(y) !=length(lower.y) |
+     length(lower.y) != length(upper.y))) |
+   (x.bar==T &(length(x) !=length(lower.x) |
+              length(lower.x) != length(upper.x))))
 {stop("vectors must be same length")}
 
 
 
 if(y.bar==T){
   if(interval.type=="dist"){
-  upper.y<-y+upper.y
-  lower.y<-y-lower.y
-}
+  upper.y <- y+upper.y
+  lower.y <- y-lower.y
+  }
 
   arrows(x,upper.y,x,lower.y, angle=90,
          code=3, length=length, ...)}
 if(x.bar==T){
   if(interval.type=="dist"){
-  upper.x<-x+upper.x
-  lower.x<-x-lower.x
+  upper.x <- x+upper.x
+  lower.x <- x-lower.x
 }
   arrows(upper.x,y,lower.x,y,angle=90,code=3,length=length,...)
 }
